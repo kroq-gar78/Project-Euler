@@ -21,7 +21,7 @@ def squaresum(*nums):
 	return ret**2
 
 if __name__ == "__main__":
-	listnums=xrange(1,100)
+	listnums=xrange(1,101) # need 101 because top end is exclusive
 	#for i in listnums:
 	#	print i
 	print squaresum(*listnums)-sumsquares(*listnums)
