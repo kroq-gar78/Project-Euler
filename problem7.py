@@ -19,7 +19,7 @@ def genprimes(n): # Trial division, n=ordinal number of prime number to be found
 		if isprime:
 			primes.append(i)
 			primesfound=primesfound+1
-		i=i+1
+		i=i+2
 	return i-1
 
 if __name__ == "__main__":
