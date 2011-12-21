@@ -7,6 +7,8 @@
 # Problem 3
 # What is the largest prime factor of the number 600851475143?
 
+import math
+
 def highest_prime_factor(n,primes=[2]):
 	#results = isPrime(n,primes)
 	#if results[0]: return n
@@ -28,7 +30,7 @@ def highest_prime_factor(n,primes=[2]):
 					n=ndivi
 				else:
 					return n
-				print n
+				#print n
 	return n
 
 if __name__ == "__main__":
