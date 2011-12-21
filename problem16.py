@@ -8,13 +8,11 @@
 # What is the sum of the digits of the number 2^1000?
 
 def sumdigits(n):
-	return None
+	sumdigits = 0
+	for i in str(n):
+		print i
+		sumdigits=sumdigits+int(i)
+	return sumdigits
 
 if __name__ == "__main__":
-	num = 1<<1000
-	string = str(num)
-	sumofdigits = 0
-	for i in string:
-		print i
-		sumofdigits=sumofdigits+int(i)
-	print sumofdigits
+	print sumdigits(1<<1000)
