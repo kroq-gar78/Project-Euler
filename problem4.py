@@ -17,5 +17,6 @@ if __name__ == "__main__":
 	for i in xrange(100000,999999):
 		if isPalindrome(i):
 			for j in xrange(100,999):
-				if i%j==0: candidates.append(i)
+				if i%j==0:
+					if(len(str(i/j))==3): candidates.append(i)
 	print candidates[len(candidates)-1]
