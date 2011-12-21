@@ -12,7 +12,7 @@
 def gcd(a,b): # Euclidean algorithm
 	while b: a,b = b,a%b
 	return a
-def lcm(a,*bs):
+def lcm(*vals):
 	lcm_cumulative=a
 	for b in bs:
 		lcm_cumulative=lcm_cumulative*b/gcd(lcm_cumulative,b)
