@@ -8,14 +8,26 @@
 # For the first one hundred natural numbers, find the total of the
 # digital sums of the first one hundred decimal digits for all the irrational square roots.
 
+import decimal
+
 def digiroot(n):
+	#print n
+	n=str(n)
+	if '.' in n:
+		n = n.replace('.',"")
+		#print n
 	ret=0
-	while(len(str(n))>1):
-		for i in str(n):
-			ret=ret+int(i)
-		n=ret
+	for i in n:
+		#print i
+		ret=ret+int(i)
+		#print ret
+	if(len(str(ret))>1): ret = digiroot(ret)
 	return ret
 	
 if __name__ == "__main__":
-	import sys
-	print digiroot(int(sys.argv[1]))
+	decimal.getcontext().prec = 100
+	total=0
+	print digiroot(decimal.Decimal(2).sqrt())
+	for i in xrange(1,100):
+		total=total+digiroot(decimal.Decimal(i).sqrt())
+	print total
