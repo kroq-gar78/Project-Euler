@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python
 
 # Project Euler
 # http://projecteuler.net/problem=41
