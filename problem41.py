@@ -14,19 +14,25 @@ def isPandigital(x): # n-digit pandigital uses digits 1 through 'n' exactly once
 		if x.count(str(i))!=1: return False
 	return True
 
-def isPrime(x):
-	primes=[2]
-	for i in xrange(3,int(x**(0.5)+1)):
-		isprime=True
+def isPrime(n,primes=[2]):
+	if(n&1==0): return [(n==2),primes]
+	for i in primes:
+		if(n%i==0): return [False,primes]
+	for i in xrange(primes[len(primes)-1],int(n**(0.5)+1)):
+		ifprime = True
 		for j in primes:
-			if (not i%j): isprime=False; break
-		if isprime:
-			if (not x%i): return False
-			primes.append(i)
-	return True
+			if i%j == 0:
+				ifprime = False
+				break
+		if ifprime:
+			if( not i in primes ): primes.append(i)
+			if n%i==0: return [False,primes]
+	return [True,primes]
 
 if __name__ == "__main__":
-	for i in reversed(range(1,9+1)):
+	print isPrime(25)
+	primes=[2]
+	for i in reversed(range(1,7+1)):
 		startj=''
 		endj=''
 		for j in xrange(1,i+1):
@@ -36,5 +42,8 @@ if __name__ == "__main__":
 		startj=int(startj)
 		endj=int(endj)
 		for j in reversed(xrange(startj,endj)):
-			if isPandigital(j):
-				if isPrime(j): print j; exit()
+			if isPandigital(j) and j&1==1:
+				result=isPrime(j,primes)
+				primes=result[1]
+				print j,primes
+				if result[0]: print j; exit()
