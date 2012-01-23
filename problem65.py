@@ -20,12 +20,14 @@ from decimal import Decimal
 
 if __name__ == "__main__":
 	convergents = [Fraction(1,1),Fraction(3,2)]
-	pattern = [2]
+	pattern_static = [1]
+	k = 1
+	pattern_repeating = [2]
 	convergent = Fraction()
-	term = 3
-	origFrac = Fraction(2)
+	term = 4
+	origFrac = Fraction(pattern_repeating[len(pattern_repeating)-1])
 	#print Fraction(1,1)+Fraction(1,2+Fraction(1,2))
 	for i in xrange(term):
-		origFrac = Fraction(2)+Fraction(1,origFrac)
-	convergents.append(origFrac-1)
-	print convergents
+			origFrac = Fraction(pattern_repeating[i%len(pattern_repeating)])+Fraction(1,origFrac)
+	print (origFrac-pattern_static[0])
+	#print convergents
