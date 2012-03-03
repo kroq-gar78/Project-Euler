@@ -24,11 +24,19 @@ def printSpiral(spiral):
 			string += ("%04d" % int(j)) + "  "
 		print string
 
-def genSpiral(len):
-	print "Not yet implemented."
-
-if __name__ == "__main__":
-	spiral=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+def genSpiral(size):
+	
+	if( size&1 == 0 ):
+		print "Invalid size. Sizes must be odd. Returning null."
+		return None
+	
+	#spiral=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+	spiral=[]
+	for i in xrange(size):
+		newRow = []
+		for j in xrange(size):
+			newRow.append(0)
+		spiral.append(newRow)
 	
 	# MIDDLE INDEX = (len(spiral)-1)/2
 	
@@ -44,15 +52,15 @@ if __name__ == "__main__":
 	stepsLeft = 1
 	repsLeft = 2 # reps needed is always 2
 	direction = right
-	while( not (i == 0 and j == 5) ):
-		print "Index: " + ("[%d][%d]" % (i,j))
+	while( not (i == 0 and j == size) ):
+		#print "Index: " + ("[%d][%d]" % (i,j))
 		spiral[i][j] = number
 		number += 1
 		i += direction[0]
 		j += direction[1]
 		stepsLeft -= 1
 		if( stepsLeft == 0 ):
-			print "No steps left"
+			#print "No steps left"
 			# set new direction
 			if( direction == up ): direction = right
 			elif( direction == down ): direction = left
@@ -62,10 +70,21 @@ if __name__ == "__main__":
 			# process repetitions
 			repsLeft -= 1
 			if( repsLeft == 0 ):
-				print "2 reps over"
+				#print "2 reps over"
 				repsLeft = 2
 				stepsNeeded += 1
 			stepsLeft = stepsNeeded
 	
-	printSpiral(spiral)
+	return spiral
+
+if __name__ == "__main__":
+	spiral = genSpiral(1001)
+	
+	answer = 0
+	for i in xrange(1001):
+		answer += spiral[i][i]
+		answer += spiral[i][1000-i]
+	print answer-1
+	
+	#printSpiral(spiral)
 	#print spiral
