@@ -45,7 +45,6 @@ if __name__ == "__main__":
 	i = 20
 	primeFactors = [0,0,0,0]
 	while not ( primeFactors[0] == 4 and primeFactors[1] == 4 and primeFactors[2] == 4 and primeFactors[3] == 4 ):
-	#while not ( primeFactors[0] == 3 and primeFactors[1] == 3 and primeFactors[2] == 3 ):
 		i+=1
 		primeFactors[0] = len(factorize(i))
 		primeFactors[1] = len(factorize(i+1))
