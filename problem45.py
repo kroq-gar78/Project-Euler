@@ -25,21 +25,28 @@ def ishexnum(n):
 	return int(x)==x
 
 if __name__ == "__main__":
-	i=40756
+	term=144
+	i=term*(2*term-1)
 	# all hexnums are trinums, so no need to check for trinums
-	while True:
-		#trin=istrinum(i)
-		#pentn=ispentnum(i)
-		#hexn=ishexnum(i)
-		#print i
+	#istrin = istrinum(i)
+	#ispentn = ispentnum(i)
+	#ishexn = ishexnum(i)
+	while not ispentnum(i):
+		i=term*(2*term-1)
+		term+=1
+		#istrin=istrinum(i)
+		#ispentn=ispentnum(i)
+		#ishexn=ishexnum(i)
+		'''if i%10000==0: print i
 		if ispentnum(i)==True:
 			if ishexnum(i)==True:
-				print i; exit()
+				print i
+				exit()
 			else: i+=1; continue
-		else: i+=1; continue
-		if trin==False or pentn==False or hexn==False:
-			i+=1
-		if trin==True and pentn==True and hexn==True: print i; exit()
+		else: i+=1; continue'''
+		#if trin==False or pentn==False or hexn==False:
+		#	i+=1
+		#if trin==True and pentn==True and hexn==True: print i; exit()
 		
 	print istrinum(i)
 	print ispentnum(i)
