@@ -69,7 +69,9 @@ if __name__ == "__main__":
 		if( i in circPrimes ): continue
 		rotations = getRotations(i)
 		circular = True
+		if( '2' in str(i) or '4' in str(i) or '6' in str(i) or '8' in str(i) or '0' in str(i) ): circular = (i==2)
 		for j in rotations:
+			if not circular: break
 			if( not int(j) in primes ): circular = False; break
 		for j in rotations: circPrimes[j]=circular
 		if (i-1)%10000==0: print i-1
