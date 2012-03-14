@@ -13,5 +13,4 @@ for i in xrange(2,1000000):
 	for j in string:
 		value+=int(j)**5
 	if value == i: numbers.append(i)
-	if i%10000==0: print i
 print sum(numbers)
