@@ -30,34 +30,20 @@ if __name__ == "__main__":
         nextx = False
         if(x%10==0): continue # if it is divisible by 10; answer is trivial or 0
         for y in xrange(10,100):
-            #if(x!=49 or y!=98): continue
             if(x>=y): continue
             if(y%10==0): continue
-            print (x,y)
-            #gcdxy = gcd(x,y)
-            #if gcdxy==1: nextx = True; break
             commonfound = False
             for i in str(x):
                 if i in str(y):
                     commonfound = True
-                    #print "Found common: " + str(i)
                     xlist, ylist = list(str(x)), list(str(y))
                     del xlist[xlist.index(i)]
-                    #print ylist.index(i)
                     del ylist[ylist.index(i)]
                     newx, newy = int((''.join(xlist))), int((''.join(ylist)))
-                    #print newx, newy
                     break
-            #print "made it"
             if not commonfound: continue
-                #print "not found"
-                #nextx = True
-                #break
-            #print "made it"
-            #print str(Decimal(x)/Decimal(y))
             if (Decimal(x)/Decimal(y)) == (Decimal(newx)/Decimal(newy)):
                 pairs.append((x,y))
-                print (x,y)
         if nextx: continue
     solution = [1,1]
     for i in pairs:
@@ -65,4 +51,4 @@ if __name__ == "__main__":
         solution[0] *= x
         solution[1] *= y
     gcdsolution = gcd(solution[0],solution[1])
-    print (solution[0]/gcdsolution,solution[1]/gcdsolution)
+    print solution[1]/gcdsolution
