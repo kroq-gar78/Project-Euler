@@ -1,4 +1,4 @@
-#!/usr/bin/env python_build
+#!/usr/bin/env python
 
 # Project Euler: problem 37
 
