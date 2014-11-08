@@ -5,7 +5,7 @@
 #
 
 # Problem 48
-# Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.
+# Find the last ten digits of the series, 1^1 + 2^2 + 3^3 + ... + 1000^1000.
 
 if __name__ == "__main__":
 	total=0
