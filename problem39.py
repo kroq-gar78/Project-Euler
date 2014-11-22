@@ -40,31 +40,26 @@ if __name__ == "__main__":
 	squares = [i*i for i in xrange(1,1000)]
 	bestp = 0
 	bestcombos = 0
-	for p in xrange(4, 1001):
-	#for p in [119,120]:
-		print p
-		sides = set()
-		#p = 120
-		tmp = p/(2.0+math.sqrt(2))
-		#print tmp
+	for p in xrange(4, 999): # can restrict the bounds slightly because of integral side lengths
+		#print p
+		combos = 0
+		hyp_min = p/(2.0+math.sqrt(2))
+		hyp_max = p/2.0
 		for a in xrange(1,int(p/2.0)): # not sure how to round here... pretty sure I have to round down
-			#print "%d: %d , %d" % (a , int(p-a-p/2.0) , int(p-a-tmp))
-			lowerb = int(p-a-p/2.0)
-			upperb = int(p-a-tmp)
+			lowerb = max([ int(p-a-hyp_max) , a ])
+			upperb = int(p-a-hyp_min)
+			#print a,lowerb, upperb
 			for b in xrange(lowerb , upperb): # absolute restrictions for leg 'b'
 				if((a*a + b*b) in squares):
 					c = int(math.sqrt(a*a+b*b))
-					abc = tuple(sorted([a,b,c]))
-					# the set may be able to be removed if it's outputting double of everything
-					if(a+b+c == p and not abc in sides): # double check perimeter and add to set
-						sides.add(abc)
+					if(a+b+c == p): # double check perimeter and add to set
+						combos += 1
 						upperb = b
 						#print a,b,c
-					break # only one integer 'b' per integer 'a'
+						break # only one integer 'b' per integer 'a'
 		
-		if len(sides) > bestcombos:
-			#print p,bestcombos
+		if combos > bestcombos:
 			bestp = p
-			bestcombos = len(sides)
-		#print p,len(sides)
-	print bestp,bestcombos
+			bestcombos = combos
+	#print bestp,bestcombos
+	print bestp
