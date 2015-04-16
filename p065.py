@@ -39,35 +39,6 @@ def inf_frac_e(nterms,curr):
 
 
 if __name__ == "__main__":
-    #convergents = [Fraction(1,1),Fraction(3,2)]
-    #k = 1
-    #pattern_repeating = [1,2*k,1]
-    #convergent = Fraction()
-    #term = 3
-    #if term == 1: print Fraction(2); exit()
-    #elif term == 2: print Fraction(2)+Fraction(1); exit()
-    #bottomElement = (term-2)%len(pattern_repeating)
-    #origFrac = Fraction(pattern_repeating[bottomElement])
-    #print Fraction(1,1)+Fraction(1,2+Fraction(1,2))
-    #for i in xrange(term):
-    #    if( i == term-1 ): # if last term
-    #        origFrac = Fraction(2)+Fraction(1,origFrac)
-    #    elif( i == 0 ):
-    #        nextElement = bottomElement-1
-    #        if nextElement < 0: nextElement = len(pattern_repeating)-1
-    #        origFrac = Fraction(pattern_repeating[nextElement])+Fraction(1,origFrac)
-    #    elif( i > 0 ):
-    #        #print pattern_repeating[i%len(pattern_repeating)]
-    #        origFrac = Fraction(pattern_repeating[(i-1)%len(pattern_repeating)])+Fraction(1,origFrac)
-    #    #else:
-    #    #    origFrac = Fraction(1)+Fraction(1,origFrac)
-    #    #    print origFrac
-    #    print origFrac
-    #print (origFrac)
-    #print convergents
-
-    #pattern = [1,2,1] # add to the 2nd item as needed
-
     #print inf_frac_e(10-1,0)
     #print sum( map(int, str(inf_frac_e(10-1,0).numerator)) )
     print sum( map(int, str(inf_frac_e(100-1,0).numerator)) )
