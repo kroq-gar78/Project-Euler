@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
-# Project Euler: problem 23
+# Project Euler: problem 23 (solved)
 # http://projecteuler.net/problem=23
 
 # A number n is called deficient if the sum of its proper divisors is
