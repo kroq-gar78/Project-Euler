@@ -9,9 +9,9 @@
 import math
 
 if __name__ == "__main__":
-	datafile = file('problem99_data.txt','r')
+	datafile = file('p099_data.txt','r')
 	lines = datafile.readlines()
-	
+
 	largestline = 0
 	largestval = 0
 	for i in xrange(len(lines)):
